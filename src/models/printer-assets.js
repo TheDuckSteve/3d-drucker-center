@@ -3,8 +3,10 @@
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 // Stil (wie in catalog.js) → Datei. Pfade relativ zu dieser Datei, damit es auch auf GitHub Pages klappt.
+// ?v= nach jeder Änderung an einer Modelldatei erhöhen, sonst zeigt der Browser die alte aus dem Cache.
+const VERSION = 3;
 const FILES = {
-  'a1-mini': new URL('../../assets/models/a1-mini.glb', import.meta.url).href,
+  'a1-mini': `${new URL('../../assets/models/a1-mini.glb', import.meta.url).href}?v=${VERSION}`,
 };
 
 const loaded = new Map(); // Stil → Szene aus der glTF-Datei
