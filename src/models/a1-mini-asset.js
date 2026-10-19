@@ -77,9 +77,17 @@ export function buildA1MiniFromAsset(g, source) {
     },
   };
 
-  // Spulenhalter oben auf der Säule, Spule hängt links daneben (wie beim echten A1 mini)
+  // Spulenhalter oben auf der Säule, Spule hängt links daneben (wie beim echten A1 mini).
+  // Zur Z-Achse gehören auch Teile unten am Sockel – die Säulenspitze sind nur die obersten Teile.
   const column = boundsOf(model.getObjectByName('Z_Axis') ?? model);
-  const top = new THREE.Vector3((column.min.x + column.max.x) / 2, column.max.y, (column.min.z + column.max.z) / 2);
+  const cap = new THREE.Box3();
+  model.getObjectByName('Z_Axis')?.traverse((o) => {
+    if (!o.isMesh) return;
+    const b = boundsOf(o);
+    if (b.max.y > column.max.y - 0.03) cap.union(b);
+  });
+  const peak = cap.isEmpty() ? column : cap;
+  const top = new THREE.Vector3((peak.min.x + peak.max.x) / 2, column.max.y, (peak.min.z + peak.max.z) / 2);
   const holder = createSpoolHolder(0.09, createMaterials());
   holder.rotation.y = Math.PI;
   holder.position.copy(top);

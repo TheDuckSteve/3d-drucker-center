@@ -228,4 +228,4 @@ Technik: [Three.js](https://threejs.org/) 0.169 als ES-Module direkt im Browser,
 
 ## Credits
 
-- **Bambu Lab A1 mini** (`assets/models/a1-mini.glb`): This work is based on ["3D Printer - Bambu Lab A1 Mini"](https://sketchfab.com/3d-models/3d-printer-bambu-lab-a1-mini-407fb64c44be4e1888db246b447f811b) by [neilvfx](https://sketchfab.com/neilvfx) licensed under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/). Für das Spiel verkleinert (weniger Dreiecke, Texturen 1024 px) und auf Metallic-Roughness-Materialien umgerechnet.
+- **Bambu Lab A1 mini** (`assets/models/a1-mini.glb`): This work is based on ["3D Printer - Bambu Lab A1 Mini"](https://sketchfab.com/3d-models/3d-printer-bambu-lab-a1-mini-407fb64c44be4e1888db246b447f811b) by [neilvfx](https://sketchfab.com/neilvfx) licensed under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/). Form unverändert; für das Spiel Texturen auf 2048 px verkleinert und auf Metallic-Roughness-Materialien umgerechnet.
