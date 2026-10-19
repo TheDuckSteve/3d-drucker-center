@@ -173,6 +173,7 @@ index.html          Einstieg, Import-Map für Three.js
 css/style.css       HUD, Shop- und Menüfenster
 serve.ps1           Lokaler Webserver für Windows
 .github/workflows/  pages.yml: veröffentlicht main automatisch auf GitHub Pages
+assets/models/      Fertige 3D-Modelle (glTF/GLB), z. B. a1-mini.glb
 src/
   main.js           Verdrahtet alles: Szene, Steuerung, Spielschleife
   core/             Spiellogik, ohne Three.js und ohne DOM
@@ -202,6 +203,8 @@ src/
     util.js           Kleine 3D-Helfer (Schatten)
   models/           Reine 3D-Modelle, ohne Spiellogik
     printer-model.js, printer-parts.js   Drucker
+    printer-assets.js Lädt fertige Druckermodelle (glTF) beim Start; fehlt eins, gibt es das eingebaute
+    a1-mini-asset.js  A1 mini aus dem glTF: Größe, Drehung, bewegliche Achsen, Spulenhalter
     nozzle-changer.js Düsenwechsler des H2C: Wechselkopf, Düsenhalter, LED-Leiste
     printer-box.js    Lieferkarton
     print-shapes.js   Formen der Druckvorlagen
@@ -222,3 +225,7 @@ src/
 ```
 
 Technik: [Three.js](https://threejs.org/) 0.169 als ES-Module direkt im Browser, ohne npm und ohne Build-Tools.
+
+## Credits
+
+- **Bambu Lab A1 mini** (`assets/models/a1-mini.glb`): This work is based on ["3D Printer - Bambu Lab A1 Mini"](https://sketchfab.com/3d-models/3d-printer-bambu-lab-a1-mini-407fb64c44be4e1888db246b447f811b) by [neilvfx](https://sketchfab.com/neilvfx) licensed under [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/). Für das Spiel verkleinert (weniger Dreiecke, Texturen 1024 px) und auf Metallic-Roughness-Materialien umgerechnet.

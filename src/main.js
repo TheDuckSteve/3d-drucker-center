@@ -30,6 +30,7 @@ import { createPrinterCam } from './ui/printer-cam.js';
 import { enableShadows } from './world/util.js';
 import { speedById } from './core/catalog.js';
 import { setupGraphics, loadQuality, saveQuality, gpuInfo } from './world/graphics.js';
+import { preloadPrinterAssets } from './models/printer-assets.js';
 
 const WALK_SPEED = 4;          // m/s
 const EYE_HEIGHT = 1.7;        // m
@@ -38,6 +39,9 @@ const SNEAK_SPEED = 0.4;       // Anteil der Laufgeschwindigkeit beim Schleichen
 const CROUCH_RATE = 8;         // wie schnell man in die Hocke geht bzw. aufsteht (1/s)
 const PLAYER_RADIUS = 0.3;     // m, Abstand des Körpers zu Hindernissen
 const INTERACT_DISTANCE = 2.5; // m
+
+// Fertige Druckermodelle (glTF) laden, bevor irgendein Drucker gebaut wird
+await preloadPrinterAssets();
 
 const collision = new CollisionWorld();
 const economy = new Economy();

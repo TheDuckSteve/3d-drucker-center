@@ -14,6 +14,8 @@ import {
   createLabel, createVents, createFanGrille, createDualToolhead,
 } from './printer-parts.js';
 import { createChangerToolhead, createLedStrip, createNozzleRack } from './nozzle-changer.js';
+import { printerAsset } from './printer-assets.js';
+import { buildA1MiniFromAsset } from './a1-mini-asset.js';
 
 // Lüftungsschlitze an beiden Seiten eines Sockels (Mitte bei x, Seitenflächen bei x ± w/2)
 function addSideVents(g, m, x, w, y, z, count, length) {
@@ -631,7 +633,8 @@ function buildBambuCube(g, variant) {
 }
 
 const BUILDERS = {
-  'a1-mini': (g) => buildA1Mini(g),
+  // A1 mini: fertiges glTF-Modell, falls geladen (printer-assets.js), sonst das selbst gebaute
+  'a1-mini': (g) => (printerAsset('a1-mini') ? buildA1MiniFromAsset(g, printerAsset('a1-mini')) : buildA1Mini(g)),
   a1: (g) => buildA1(g),
   p1p: (g) => buildBambuCube(g, CUBE_VARIANTS.p1p),
   p1s: (g) => buildBambuCube(g, CUBE_VARIANTS.p1s),
